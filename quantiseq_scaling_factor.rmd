@@ -1,0 +1,20 @@
+---
+title: "quantiseq_scaling_factor"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+expr = read_tsv("./scaling_factor_tpm.tsv")
+expr_mat = expr %>% as.data.frame() %>% column_to_rownames("GENE")
+devtools::load_all("/storage/home/sturm/projects/immune_deconvolution_methods")
+
+```
+
+```{r}
+deconvolute_quantiseq(expr_mat)
+
+```
